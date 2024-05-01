@@ -35,7 +35,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="body">
       <h1>Wikidata Api Example!</h1>
       <p>This is a basic app to demonstrate Wikidata API.</p>
       <form onSubmit={handleSubmit} action="/search" method="get">
@@ -49,19 +49,24 @@ function App() {
         <button type="submit">Submit</button>
       </form>
       {data?.length > 0 ? (
-        <div>
-          {data.length} resultats
+        <div className="resultat">
+          <p className="titre">{data.length} resultats</p>
           {data.map((item) => {
             return (
-              <div>
-                <table>
-                  <tbody key={item.wd_id}>
-                    <th>
+              <div className="detail-content">
+                <table style={{
+                  width: '100%',
+                  tableLayout: 'fixed'
+                }}>
+                  <thead>
+                    <tr>
                       <th>Label</th>
                       <th>Description</th>
                       <th>Url</th>
                       <th>Wikidata Id</th>
-                    </th>
+                    </tr>
+                  </thead>
+                  <tbody key={item.wd_id}>
                     <tr>
                       <td>{item.label}</td>
                       <td>{item.description}</td>
@@ -77,7 +82,7 @@ function App() {
       ) : (
         <></>
       )}
-    </>
+    </div>
   );
 }
 
