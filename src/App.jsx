@@ -17,7 +17,7 @@ function App() {
         },
       })
       .then((e) => {
-        console.log(e.data);
+        console.log(e.data.search[0].id);
         setData(e.data.search);
       })
       .catch((error) => {
@@ -52,6 +52,7 @@ function App() {
         <div className="resultat">
           <p className="titre">{data.length} resultats</p>
           {data.map((item) => {
+            console.log(item);
             return (
               <div className="detail-content">
                 <table style={{
@@ -66,12 +67,12 @@ function App() {
                       <th>Wikidata Id</th>
                     </tr>
                   </thead>
-                  <tbody key={item.wd_id}>
+                  <tbody key={item.id}>
                     <tr>
                       <td>{item.label}</td>
                       <td>{item.description}</td>
                       <td>{item.url}</td>
-                      <td>{item.wd_id}</td>
+                      <td>{item.id}</td>
                     </tr>
                   </tbody>
                 </table>
