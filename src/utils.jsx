@@ -17,9 +17,6 @@ async function FetchData(searchQuery) {
 
   const response = await fetch(
     `https://www.wikidata.org/w/api.php?action=wbsearchentities&format=json&search=${searchQuery}&language=fr`,
-    {
-      mode: "no-cors",
-    },
     { headers }
   );
   console.log("response", response);
