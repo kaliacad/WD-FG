@@ -12,6 +12,7 @@ const instance = axios.create({
     action: "wbsearchentities",
     format: "json",
     language: "fr",
+    limit: 10000,
   },
 });
 
